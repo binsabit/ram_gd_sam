@@ -1,0 +1,20 @@
+project:
+  name: "RGBD-Tracker"
+  debug_mode: true
+
+input:
+  source: "realsense" # Options: "realsense", "video_file"
+
+realsense:
+  width: 640
+  height: 480
+  fps: 30
+
+video_file:
+  path: "data/video_samples/walking.mp4"
+  loop: true
+
+models:
+  ram_weights: "weights/ram_plus_swin_large_14m.pth"
+  sam_checkpoint: "weights/sam2.1_hiera_base_plus.pt"
+  device: "cuda" # or "cpu"
