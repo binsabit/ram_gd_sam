@@ -15,6 +15,13 @@ video_file:
   loop: true
 
 models:
-  ram_weights: "weights/ram_plus_swin_large_14m.pth"
-  sam_checkpoint: "weights/sam2.1_hiera_base_plus.pt"
+  grounding_dino: 
+    weights: "./weights/groundingdino_swint_ogc.pth"
+    config: "./config/GroundingDINO_SwinT_OGC.py"
+  recognize_anything: 
+    weights: "./weights/ram_plus_swin_large_14m.pth"
+    config: ""
+  sam_checkpoint: 
+    weights: "./weights/sam2_hiera_large.pt"
+    config: "sam2_hiera_l.yaml"
   device: "cuda" # or "cpu"

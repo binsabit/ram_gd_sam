@@ -15,9 +15,15 @@ class VideoConfig:
     loop: bool
 
 @dataclass
+class Model:
+    weights: str
+    config: str
+
+@dataclass
 class ModelConfig:
-    ram_weights: str
-    sam_checkpoint: str
+    sam_checkpoint: Model
+    grounding_dino: Model
+    recognize_anything: Model
     device: str
 
 @dataclass
@@ -39,7 +45,6 @@ def load_config(config_path: str) -> AppConfig:
         project_name=data['project']['name'],
         debug_mode=data['project']['debug_mode'],
         input_source=data['input']['source'],
-        
         realsense=RealsenseConfig(
             width=data['realsense']['width'],
             height=data['realsense']['height'],
@@ -50,8 +55,18 @@ def load_config(config_path: str) -> AppConfig:
             loop=data['video_file']['loop']
         ),
         models=ModelConfig(
-            ram_weights=data['models']['ram_weights'],
-            sam_checkpoint=data['models']['sam_checkpoint'],
+            sam_checkpoint=Model(
+                weights=data['models']['sam_checkpoint']['weights'],
+                config=data['models']['sam_checkpoint']['config']
+                ),
+            grounding_dino=Model(
+                weights=data['models']['grounding_dino']['weights'],
+                config=data['models']['grounding_dino']['config']
+                ),
+            recognize_anything=Model(
+                weights=data['models']['recognize_anything']['weights'],
+                config=data['models']['recognize_anything']['config']
+                ),
             device=data['models']['device']
         )
     )
