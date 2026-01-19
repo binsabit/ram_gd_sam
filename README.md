@@ -26,9 +26,9 @@ RAM_SAM_STARTER/
 ├── weights/             # Model checkpoints (.pt, .pth)
 ├── install.sh           # Installation script
 └── requirements.txt     # Python dependencies
+```
 
-
-🚀 Getting Started
+## 🚀 Getting Started
 Prerequisites
 
     OS: Linux (Recommended)
@@ -37,38 +37,41 @@ Prerequisites
 
     Hardware: Intel RealSense Depth Camera (D400 series recommended)
 
-Installation
+## Installation
 
     Clone the repository:
-    Bash
 
+```bash
 git clone <repository_url>
 cd RAM_SAM_STARTER
+```
 
 Run the installation script: We have provided a script to set up the environment and dependencies automatically.
-Bash
 
-    bash install.sh
+```bash
+install.sh
+```
 
-    Download Model Weights: Ensure the following weight files are placed inside the weights/ directory. You may need to download these from their respective model repositories if the install script does not fetch them automatically:
+Download Model Weights: Ensure the following weight files are placed inside the weights/ directory. You may need to download these from their respective model repositories if the install script does not fetch them automatically:
 
-        groundingdino_swint_ogc.pth
+    groundingdino_swint_ogc.pth
 
-        ram_plus_swin_large_14m.pth
+    ram_plus_swin_large_14m.pth
 
-        sam2_hiera_large.pt
+    sam2_hiera_large.pt
 
-💻 Usage
+## 💻 Usage
 
 To start the tracking pipeline, run the main script from the root directory:
-Bash
 
+```bash
 python src/main.py
+```
 
-Controls
+## Controls
 
-    The system will display a window named annotated.
+The system will display a window named annotated.
 
     Press q to stop the program.
 
-    Upon exit, the annotated video will be saved as annotated_video.mp4
+Upon exit, the annotated video will be saved as annotated_video.mp4
